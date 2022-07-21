@@ -1,0 +1,12 @@
+.cont{
+    width: 75vw;
+    height: 100vh;
+    min-height: 100vh;
+    background: #000000;
+    position: absolute;
+    left: 25%;
+}
+
+.cont .cont-btn button{
+    color: #2632d9;
+}

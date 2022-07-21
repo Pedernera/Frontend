@@ -1,0 +1,18 @@
+
+<h4>Educacion <button *ngIf="isLogged" class="btn-icon" (click)="onEducacion()"> <fa-icon [icon]="add"></fa-icon> </button></h4>
+<ul>
+    <li class="item-form" *ngIf="addEducacion"><app-add-educacion (btnCancel)="onEducacion()"></app-add-educacion></li>
+    <li class="item-form" *ngIf="editEducacion"><app-edit-educacion (btnCancel)="onEditEducacion()" [editEdu]="editEdu"></app-edit-educacion></li>
+    <li class="item-edit"  *ngFor="let e of educacion">
+        <div class="titulo">
+            <h5>{{e.tituloEdu}}</h5>
+            <div class="btn-edit-elim">
+                <button class="edit" (click)="editar(e)"><fa-icon [icon]="edit"></fa-icon></button>
+                <button class="elim" (click)="deleteEdu(e.id)"><fa-icon [icon]="elim"></fa-icon></button>
+            </div>
+        </div>
+        <div class="descripcion">
+            <p>{{e.nomInstituto}}</p>
+        </div>
+    </li>
+</ul>

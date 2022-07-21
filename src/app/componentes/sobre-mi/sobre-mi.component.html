@@ -1,0 +1,25 @@
+<div class="cont" id="user">
+        <div id="text" *ngIf="!editar">
+                <p>{{persona.sobreMi}}</p>
+                <button *ngIf="isLogged" class="btn-icon" (click)="editarText()"> <fa-icon [icon]="edit"></fa-icon> </button>
+        </div>
+        <div class="edit" *ngIf="editar" >
+                <div id="text-area">
+                     <textarea name="" id="sobreMi"  rows="5" [(ngModel)]="editSobreMi" maxlength="500"></textarea>
+                     <span id="cant-caracteres">{{editSobreMi.length}} / 500</span>
+                </div>
+                <div class="cont-btn">
+                        <button class="btn-icon aceptar" (click)="updatePersona()"><fa-icon [icon]="aceptar"></fa-icon>Aceptar</button>
+                        <button class="btn-icon cancel"  (click)="editarText()"><fa-icon [icon]="cancel"></fa-icon> Cancelar</button>
+                </div> 
+        </div>
+
+        <div class="cont-exp-edu">
+                <div class="fila">
+                        <app-educacion></app-educacion>
+                </div>
+                <div class="fila">
+                        <app-experiencia></app-experiencia>
+                </div>
+        </div>
+</div>

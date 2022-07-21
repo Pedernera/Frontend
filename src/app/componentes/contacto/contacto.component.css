@@ -1,0 +1,8 @@
+.cont{
+    width: 75vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #e41111;
+}

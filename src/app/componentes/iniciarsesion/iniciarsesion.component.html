@@ -1,0 +1,22 @@
+<app-nav></app-nav>
+<div class="cont">
+    <div class="cont-form">
+        <h1>Iniciar Sesion</h1>
+            <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                <div class="txt_field">
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" [(ngModel)]="nombreUsuario" required>
+                    <span></span>
+                    <label for="nombreUsuario">Usuario</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" id="password" name="password" [(ngModel)]="password" required>
+                    <span></span>
+                    <label for="password">Contraseña</label>
+                </div>
+                <div class="cont-btn">
+                    <button type="submit">Ingresar</button>
+                    <button (click)="cancelar()">Cancelar</button>
+                </div>
+            </form>
+    </div>
+</div>

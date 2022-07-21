@@ -1,0 +1,95 @@
+.menu{
+    width: 25%;
+    height: 100vh;
+    position: fixed;
+    background: #000000;
+}
+
+.cont{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#img-logo{
+    width: 120px;
+}
+
+.cont button{
+    color: #0717f8;
+    padding: 3px;
+    margin: 0 5px;
+    font-size: large;
+    box-shadow: 0 2px 2px rgba(56, 5, 240, 0.9);
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cont button:hover{
+    color: #fff;
+    box-shadow: 0 2px 2px rgba(244, 244, 245, 0.9);
+    background: rgba(18, 18, 19, 0.4);
+    transition: .3s all;
+}
+.cont-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#img-perfil{
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin: 5px 0;
+    box-shadow: rgba(56, 5, 240, 0.1) 0px 4px 16px, rgba(56, 5, 240, 0.1) 0px 8px 24px, rgba(56, 5, 240, 0.1) 0px 16px 56px;
+}
+
+#redes{
+    display: flex;
+    justify-content: center;
+}
+
+#redes .item{
+    margin: 0px 1.5rem;
+}
+
+.icon{
+    font-size: 30px;
+    color: #0717f8;
+}
+
+#secciones{
+    
+    margin-left: 4rem;
+}
+
+#secciones li{
+    margin-bottom: 1rem;
+    width:min-content;
+}
+
+#secciones li a{
+    color: #2632d9;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 17px;
+    width: max-content;
+}
+
+#secciones li a fa-icon{
+    text-align: center;
+    width: 30px;
+ }
+
+
+#secciones li a span{
+    margin-left: 5px;
+}
+
+#secciones li a:hover,
+.icon:hover{
+    color: aliceblue;
+    transition: .5s all;
+}

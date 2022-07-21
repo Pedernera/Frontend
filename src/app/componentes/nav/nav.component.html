@@ -1,0 +1,25 @@
+<div class="menu">
+    <div class="cont">
+        <img src="../../../assets/APLogo.png" alt="" id="img-logo">
+        <button (click)="onLogin()" *ngIf="!isLogged"> Ingresar <fa-icon [icon]="login"></fa-icon></button>
+        <button (click)="onLogOut()" *ngIf="isLogged"> Salir <fa-icon [icon]="logout"></fa-icon></button>
+    </div>
+    <div class="cont-img">
+        <img src="../../../assets/perfil2.png" alt="img" id="img-perfil">
+    </div> 
+    <ul id="redes">
+        <li class="item">
+            <a href="" ><fa-icon [ngClass]="'icon'" [icon]="linkedin"></fa-icon></a>
+        </li>
+        <li class="item">
+            <a href=""><fa-icon [ngClass]="'icon'" [icon]="github"></fa-icon></a>
+        </li>
+    </ul>
+    <ul id="secciones">
+        <li> <a href="#home"> <fa-icon [icon]="home" ></fa-icon><span>Inicio</span> </a> </li>
+        <li> <a href="#user"> <fa-icon [icon]="user" ></fa-icon><span>Sobre Mi</span> </a> </li>
+        <li> <a href="#proyecto"> <fa-icon [icon]="proyectos"></fa-icon> <span>Proyectos</span> </a> </li>
+        <li> <a href="#skill"> <fa-icon [icon]="skill"></fa-icon> <span>Habilidades</span> </a></li>
+        <li> <a href="#contacto"> <fa-icon [icon]="contacto"></fa-icon> <span>Contacto</span> </a> </li>
+    </ul>
+</div>

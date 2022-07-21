@@ -1,0 +1,17 @@
+<h6>Editar Educacion</h6>
+<form #f="ngForm"  (ngSubmit)="onAceptar()" novalidate>
+    <div class="txt_field">
+        <input type="text" id="tituloEdu" name="tituloEdu" [(ngModel)]="tituloEdu" required>
+        <span></span>
+        <label >Titulo</label>
+    </div>
+    <div class="txt_field">
+        <input type="text" id="nomInstituto" name="nomInstituto" [(ngModel)]="nomInstituto" required>
+        <span></span>
+        <label >Instituto</label>
+    </div>
+    <div class="cont-btn">
+        <button class="btn-icon aceptar" type="submit"><fa-icon [icon]="aceptar"></fa-icon> Aceptar</button>
+        <button class="btn-icon cancel" (click)="onCancel()"><fa-icon [icon]="cancel"></fa-icon> Cancelar</button>
+    </div>
+</form>

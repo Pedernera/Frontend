@@ -1,0 +1,27 @@
+.cont{
+    width: 75vw;
+    min-height: 100vh;
+    background-image: url('../../../assets/fdp3.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.cont h1, h4{
+    background: none;
+    color: white;
+    text-shadow: 3px 3px 5px #000000;
+    text-transform: capitalize;
+}
+
+#uno{
+    width: 360px;
+}
+
+
+

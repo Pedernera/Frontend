@@ -1,0 +1,24 @@
+<div class="cont" id="home">
+    <h1>{{persona.nombre + " " + persona.apellido}} <button class="btn-icon" *ngIf="isLogged" (click)="editar('nom-ape')" ><fa-icon [icon]="edit"></fa-icon></button></h1>
+    <div *ngIf="editNomApe" class="edit">
+        <div class="cont-input">
+            <input type="text" [(ngModel)]="EditNombre">
+            <input type="text" [(ngModel)]="EditApellido">
+        </div>
+        <div class="cont-btn">
+            <button class="btn-icon aceptar" (click)="updatePersona()"><fa-icon [icon]="aceptar"></fa-icon>Aceptar</button>
+            <button class="btn-icon cancel"  (click)="cancelar('nom-ape')"><fa-icon [icon]="cancel"></fa-icon> Cancelar</button>
+        </div>
+    </div>
+    <h4>{{persona.posicion}} <button class="btn-icon" *ngIf="isLogged" (click)="editar('pos')" ><fa-icon [icon]="edit"></fa-icon></button></h4>
+    <div *ngIf="editPosicion" class="edit">
+        
+        <div class="cont-input">
+            <input type="text" id="uno" [(ngModel)]="EditPos">
+        </div>
+        <div class="cont-btn">
+            <button class="btn-icon aceptar" (click)="updatePersona()"><fa-icon [icon]="aceptar"></fa-icon> Aceptar</button>
+            <button class="btn-icon cancel" (click)="cancelar('pos')"><fa-icon [icon]="cancel"></fa-icon> Cancelar</button>
+        </div>
+    </div>
+</div>

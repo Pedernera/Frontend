@@ -1,0 +1,35 @@
+h4{
+    display: flex;
+    justify-content: space-between;
+    margin: 3px 10px;
+    color: #ffffff;
+}
+
+.titulo,
+.descripcion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.titulo h5{
+    text-transform: capitalize;
+}
+
+.btn-edit-elim button{
+    background: transparent;
+    margin: 0 5px;
+}
+
+.btn-edit-elim .edit{
+    color: #0ec51e;
+}
+.btn-edit-elim .elim{
+    color: #c50e0e;
+}
+
+.btn-edit-elim button:hover {
+    box-shadow:  0 3px 3px;
+    
+}
