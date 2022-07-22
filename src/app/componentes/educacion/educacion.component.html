@@ -6,7 +6,7 @@
     <li class="item-edit"  *ngFor="let e of educacion">
         <div class="titulo">
             <h5>{{e.tituloEdu}}</h5>
-            <div class="btn-edit-elim">
+            <div class="btn-edit-elim" *ngIf="isLogged">
                 <button class="edit" (click)="editar(e)"><fa-icon [icon]="edit"></fa-icon></button>
                 <button class="elim" (click)="deleteEdu(e.id)"><fa-icon [icon]="elim"></fa-icon></button>
             </div>

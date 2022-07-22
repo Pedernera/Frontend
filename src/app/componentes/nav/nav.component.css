@@ -36,7 +36,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    position: relative;
 }
+
+.cont-img .round{
+    position: absolute;
+    bottom: 0px;
+    right: 50px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.cont-img .round input[type = 'file']{
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+
+}
+
+
+input[type ='file']::-webkit-file-upload-button{
+    cursor: pointer;
+    text-emphasis: none;
+}
+
+
 #img-perfil{
     width: 175px;
     height: 175px;

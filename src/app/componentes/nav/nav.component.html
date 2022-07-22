@@ -1,11 +1,20 @@
 <div class="menu">
     <div class="cont">
-        <img src="../../../assets/APLogo.png" alt="" id="img-logo">
+        <img  src="../../../assets/APLogo.png" alt="" id="img-logo">
         <button (click)="onLogin()" *ngIf="!isLogged"> Ingresar <fa-icon [icon]="login"></fa-icon></button>
         <button (click)="onLogOut()" *ngIf="isLogged"> Salir <fa-icon [icon]="logout"></fa-icon></button>
     </div>
     <div class="cont-img">
-        <img src="../../../assets/perfil2.png" alt="img" id="img-perfil">
+        <img *ngIf="!editImg" [src]="'../../../assets/' + persona.img" alt="img" id="img-perfil">
+        <img *ngIf="editImg" [src]="previewImg"  alt="img" id="img-perfil">
+        <div class="round"  *ngIf="userEdit && !editImg" >
+            <input type="file" (change)="modificarImg($event)">
+            <button class="btn-icon"><fa-icon [icon]="edit"></fa-icon></button>
+        </div>
+        <div *ngIf="editImg">
+            <button class="btn-icon aceptar" (click)="aceptar()"><fa-icon [icon]="acept"></fa-icon> Aceptar</button>
+            <button class="btn-icon cancel" (click)="cancelar()"><fa-icon [icon]="cancel"></fa-icon> Cancelar</button>
+        </div>
     </div> 
     <ul id="redes">
         <li class="item">
