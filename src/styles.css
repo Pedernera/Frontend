@@ -3,6 +3,11 @@
     padding: 0;
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 
 
@@ -85,7 +90,6 @@ ul{
 .item-edit{
     margin: 25px auto;
     width:  95%;
-    height: 70px;
     border-top: 1px solid #2632d9;
     border-left: 1px solid #2632d9;
 }
@@ -123,6 +127,46 @@ form .txt_field{
     position: relative;
     border-bottom: 2px solid #2632d9;
     margin: 30px 0;
+}
+
+form .input-date{
+    display: flex;
+}
+
+form .input-date div{
+    color: #2632d9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+form .input-check{
+    color: #2632d9;
+    display: flex;
+    align-items: center;
+}
+
+form .input-check input{
+    margin-left: 15px;
+}
+
+textarea{
+    background: #000000;
+    color: #0717f8;
+    overflow: hidden;
+    border-radius: 5px;
+    resize: none;
+}
+form .input-date div input{
+    background: transparent;
+    color: #2632d9;
+    border: 1px solid #2632d9;
+    padding: 2px;
+    box-shadow: 0 2px 2px rgba(56, 5, 240, 0.9);
+    margin: 10px;
+}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 .txt_field input{

@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http'
-import { FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import {} from '@angular/fire'
 
 import { AppComponent } from './app.component';
 import { IniciarsesionComponent } from './componentes/iniciarsesion/iniciarsesion.component';
@@ -22,7 +22,14 @@ import { EditEducacionComponent } from './componentes/educacion/edit-educacion/e
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { SkillComponent } from './componentes/skill/skill.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
-
+import { BarProgressComponent } from './componentes/skill/bar-progress/bar-progress.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AddProyectoComponent } from './componentes/proyectos/add-proyecto/add-proyecto.component';
+import { EditProyectoComponent } from './componentes/proyectos/edit-proyecto/edit-proyecto.component';
+import { AddSkillComponent } from './componentes/skill/add-skill/add-skill.component';
+import { EditSkillComponent } from './componentes/skill/edit-skill/edit-skill.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,14 +46,21 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
     EditEducacionComponent,
     ProyectosComponent,
     SkillComponent,
-    ContactoComponent
+    ContactoComponent,
+    BarProgressComponent,
+    AddProyectoComponent,
+    EditProyectoComponent,
+    AddSkillComponent,
+    EditSkillComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]

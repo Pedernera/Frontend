@@ -1,0 +1,51 @@
+.txt{
+    display: flex;
+    flex-direction: column;
+    color: #0717f8;
+}
+.txt textarea,
+.txt input{
+    color: #0717f8;
+    background: transparent;
+    border: 1px solid #0717f8;
+    outline: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+.link{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.link span{
+    display:flex;
+    flex-direction: column;
+    width: 45%;
+    text-align: center;
+}
+
+.txt input[type="file"]{
+    width: 50%;
+    border:none;
+}
+.txt img{
+    width: 250px;
+    margin: 0 auto;
+}
+
+.link span .live{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.live input{
+    margin: 0 10px;
+}
+.cont-btn{
+    justify-content: space-around;
+}

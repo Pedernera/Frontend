@@ -1,0 +1,11 @@
+
+<div class="titulo">
+    <h6 [style]="{'--color': color}">{{skill?.nomSkill}}</h6>
+    <div class="btn-edit-elim" *ngIf="isLogged">
+        <button class="edit" (click)="editarSkill()"><fa-icon [icon]="edit"></fa-icon></button>
+        <button class="elim" (click)="deleteSkill()"><fa-icon [icon]="elim"></fa-icon></button>
+    </div>
+</div>
+<div class="bar">
+    <span  [style]="{'--num': skill?.porcentaje + '%', '--color': color}" >{{skill?.porcentaje + ' %'}}</span>
+</div>

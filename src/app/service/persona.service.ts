@@ -8,7 +8,6 @@ import { TokenService } from './token.service';
   providedIn: 'root'
 })
 export class PersonaService {
-  headers = { 'content-type': 'application/json', 'Authorization': 'Bearer' + this.tokenservice.getToken()} 
   URL = 'http://localhost:8080/personas/'
 
   constructor( private http : HttpClient, private tokenservice: TokenService) { }
@@ -18,7 +17,8 @@ export class PersonaService {
   }
 
   public updatePersona(id: number, persona:persona): Observable<any>{
-    return this.http.put<any>(this.URL + `update/${id}`, persona,{'headers': this.headers} );
+    const headers = { 'content-type': 'application/json', 'Authorization': 'Bearer' + this.tokenservice.getToken()} 
+    return this.http.put<any>(this.URL + `update/${id}`, persona,{'headers': headers} );
   }
 
 

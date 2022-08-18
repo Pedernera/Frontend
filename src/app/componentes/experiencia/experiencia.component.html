@@ -1,7 +1,9 @@
 <h4>Experiencia <button *ngIf="isLogged" class="btn-icon" (click)="onExperiencia()"> <fa-icon [icon]="add"></fa-icon> </button></h4>
-<ul>
+<ul *ngIf="addExperiencia || editExperiencia">
     <li class="item-form" *ngIf="addExperiencia"><app-add-experiencia (btnCancel)="onExperiencia()"></app-add-experiencia></li>
     <li class="item-form" *ngIf="editExperiencia"><app-edit-experiencia (btnCancel)="onEditExperiencia()" [ListExp]="experiencias" [EditExp]="editExp"></app-edit-experiencia></li>
+</ul>
+<ul *ngIf="!addExperiencia && !editExperiencia">
     <li class="item-edit"  *ngFor="let e of experiencias">
         <div class="titulo">
             <h5>{{e.nombreExp}}</h5>
@@ -12,6 +14,9 @@
         </div>
         <div class="descripcion">
             <p>{{e.descripcionExp}}</p>
+        </div>
+        <div class="footer">
+            <p><span>Desde:  {{cargarFecha(e.fechaInicioExp)}}</span> <span>Hasta: {{cargarFecha(e.fechaFinalExp)}}</span></p>
         </div>
     </li>
 </ul>

@@ -1,10 +1,18 @@
 .menu{
     width: 25%;
-    height: 100vh;
-    position: fixed;
+    min-height: 100vh;
     background: #000000;
+    border-right: 2px solid #0717f846;
+    position: fixed;
 }
 
+.ocultar{
+    height: 12vh;
+}
+
+.mostrar{
+    height: 100vh;
+}
 .cont{
     display: flex;
     justify-content: space-around;
@@ -120,4 +128,33 @@ input[type ='file']::-webkit-file-upload-button{
 .icon:hover{
     color: aliceblue;
     transition: .5s all;
+}
+
+@media (max-width:1100px) {
+    #secciones{
+        margin-top: 20px;
+    }
+    #secciones li{
+        margin-bottom: 0.8rem;
+    }
+}
+@media (max-width:1018px) {
+    .menu{
+        width: 30%;
+    }
+}
+
+@media (max-width:850px) {
+    .menu{
+        width: 33%;
+    }
+}
+
+@media (max-width:772px) {
+    .menu{
+       position: relative;
+       width: 100%;
+       min-height: 12vh;
+       border-right: none;
+    }
 }

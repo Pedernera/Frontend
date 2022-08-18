@@ -1,0 +1,40 @@
+<h6>Añadir Skill</h6>
+<form  #f="ngForm" novalidate (ngSubmit)="onAceptar()">
+    <div class="txt">
+        <label>Skill</label>
+        <input type="text" name="nomSkill" [(ngModel)]="nomSkill" autocomplete="off">
+    </div>
+
+    <div class="select">
+        <span>
+            <label>Nivel</label>
+            <select name="nivel" (change)="changeNivel($event)" [value]="nivel">
+               <option value="">Selecionar</option>
+               <option value="basico">Basico</option>
+               <option value="intermedio">Intermedio</option>
+               <option value="avanzado">Avanzado</option>
+            </select>
+        </span>
+        <span>
+            <label>Categoria</label>
+            <select name="nivel" (change)=" changeCatgeroria($event)" [value]="categoria">
+               <option value="">Selecionar</option>
+               <option value="fronEnd">FronEnd</option>
+               <option value="backend">Backend</option>
+               <option value="soft">Habilidad Blanda</option>
+            </select>
+        </span> 
+    </div>
+    <div class="rango">
+        <label>{{porcentaje}}</label>
+        <input type="range" name="porcentaje" [(ngModel)]="porcentaje">
+    </div>
+    <div class="color">
+        <label>Color</label>
+        <input type="color" name="color" [(ngModel)]="color">
+    </div>
+    <div class="cont-btn">
+        <button class="btn-icon aceptar" type="submit"><fa-icon [icon]="aceptar"></fa-icon> Aceptar</button>
+        <button class="btn-icon cancel" (click)="onCancel()" ><fa-icon [icon]="cancelar"></fa-icon> Cancelar</button>
+    </div>
+</form>

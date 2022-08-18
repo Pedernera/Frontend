@@ -6,13 +6,19 @@ h4{
 }
 
 .titulo,
-.descripcion{
+.descripcion,
+.footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 10px;
 }
 
+.footer p{
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
 .titulo h5{
     text-transform: capitalize;
 }

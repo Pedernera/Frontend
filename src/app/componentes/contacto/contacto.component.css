@@ -3,6 +3,88 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
-    background: #e41111;
+    background: #000000;
+    color: aliceblue;    
+}
+
+.cont form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form .cont-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    margin: 10px;
+}
+
+form .columna{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+form .columna div{
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+form .cont-input textarea{
+    width: 100%;
+}
+
+form .columna div input, form .cont-input textarea{
+    background: #121212;
+    outline: none;
+    border: none;
+    resize: none;
+    padding: 15px;
+    margin: 10px;
+    color: #f1f1f1;
+}
+
+form .columna div input{
+    width: 90%;
+    padding: 7px;
+}
+
+.cont-btn {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+
+}
+.cont-btn button{
+    width: 70%;
+    color: #f1f1f1;
+}
+
+
+@media (max-width:1018px) {
+    .cont{
+       width: 70vw;
+    }
+}
+
+@media (max-width:850px) {
+    .cont{
+        width: 67vw;
+    }
+}
+
+@media (max-width:772px) {
+    .cont{
+        width: 100vw;
+    }
 }

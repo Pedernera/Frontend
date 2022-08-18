@@ -4,3 +4,21 @@
     left: 25%;
 }
 
+@media (max-width:1018px) {
+    .move{
+        left: 30%;
+    }
+}
+
+@media (max-width:850px) {
+    .move{
+        left: 33%;
+    }
+}
+
+@media (max-width:772px) {
+    .move{
+        position: relative;
+       left: 0;
+    }
+}

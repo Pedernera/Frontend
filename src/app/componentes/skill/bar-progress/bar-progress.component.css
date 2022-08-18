@@ -1,0 +1,62 @@
+h6{
+    text-align: start;
+    margin: 10px;
+    text-transform: uppercase;
+    color: var(--color);
+}
+.bar{
+    background: #353b48;
+    height: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    
+}
+.bar span{
+    height: 20px;
+    float: left;
+    background: var(--color);
+    animation: progress 3s;
+    width: var(--num);
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center
+}
+
+.titulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+}
+.titulo h6{
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.btn-edit-elim button{
+    background: transparent;
+    margin: 0 5px;
+}
+
+.btn-edit-elim .edit{
+    color: #0ec51e;
+}
+.btn-edit-elim .elim{
+    color: #c50e0e;
+}
+
+.btn-edit-elim button:hover {
+    box-shadow:  0 3px 3px;
+    
+}
+
+@keyframes progress {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: var(--num);
+    }
+}

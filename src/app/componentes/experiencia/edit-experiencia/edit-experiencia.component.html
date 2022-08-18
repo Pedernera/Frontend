@@ -11,6 +11,20 @@
             <span></span>
             <label >Descripcion</label>
         </div>
+        <div class="input-check">
+            <label>Trabajo Actual</label>
+            <input type="checkbox" [checked]="check" (change)="onCkeck($event)">
+        </div>
+        <div class="input-date">
+            <div>
+                <label>Fecha Inicial</label>
+                <input type="date" name="fechaInicial" id="fechaInicial" [(ngModel)]="fechaInicial">
+            </div>
+            <div>
+                <label>Fecha Final</label>
+                <input type="date" name="fechaFinal" id="fechaFinal" [(ngModel)]="fechaFinal" [disabled]="check">
+            </div>
+        </div>
         <div class="cont-btn">
             <button class="btn-icon aceptar" type="submit"><fa-icon [icon]="aceptar"></fa-icon> Aceptar</button>
             <button class="btn-icon cancel" (click)="onCancel()"><fa-icon [icon]="cancel"></fa-icon> Cancelar</button>

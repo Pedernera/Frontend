@@ -1,11 +1,11 @@
-<div class="menu">
+<div class="menu mostrar" >
     <div class="cont">
-        <img  src="../../../assets/APLogo.png" alt="" id="img-logo">
+        <img  src="../../../assets/APLogo.png" alt="logo" id="img-logo">
         <button (click)="onLogin()" *ngIf="!isLogged"> Ingresar <fa-icon [icon]="login"></fa-icon></button>
         <button (click)="onLogOut()" *ngIf="isLogged"> Salir <fa-icon [icon]="logout"></fa-icon></button>
     </div>
-    <div class="cont-img">
-        <img *ngIf="!editImg" [src]="'../../../assets/' + persona.img" alt="img" id="img-perfil">
+    <div class="cont-img" >
+        <img *ngIf="!editImg" [src]="cargando ? cargando :'../../../assets/fotoCargando.jpg'" alt="img" id="img-perfil">
         <img *ngIf="editImg" [src]="previewImg"  alt="img" id="img-perfil">
         <div class="round"  *ngIf="userEdit && !editImg" >
             <input type="file" (change)="modificarImg($event)">

@@ -1,3 +1,26 @@
 <div class="cont" id="proyecto">
-
+    <h3>Proyectos  <button *ngIf="isLogged" class="btn-icon" (click)="onProyecto()"> <fa-icon [icon]="add"></fa-icon> </button></h3>
+    <div *ngIf="addProyecto || editProyecto" class="cont-add-edit">
+        <app-add-proyecto *ngIf="addProyecto" (btnCancel)="onProyecto()" ></app-add-proyecto>
+        <app-edit-proyecto *ngIf="editProyecto" (btnCancel)="onEditProyecto()" [editProyecto]="editPro"></app-edit-proyecto>
+    </div>
+    <div class="cont-proyecto" *ngIf="!addProyecto && !editProyecto">
+        <div class="card-proyecto" *ngFor=" let p of proyectos">
+            <img [src]="p.urlImg" [alt]="p.imgProyecto">
+            <div class="info">
+                <div class="header">
+                    <h5>{{p.nomProyecto}}</h5>
+                    <div class="btn-edit-elim" *ngIf="isLogged">
+                        <button class="edit" (click)="editar(p)"><fa-icon [icon]="edit"></fa-icon></button>
+                        <button class="elim" (click)="deleteProyecto(p.id)"><fa-icon [icon]="elim"></fa-icon></button>
+                    </div>
+                </div>
+                <p>{{p.descripcionPro}}</p>
+            </div>
+            <div class="footer">
+                <button><a [href]="p.linkLive">Live</a></button>
+                <button (click)="mostrar()"><a [href]="p.linkGithub">Github</a></button>
+            </div>
+        </div>
+    </div>
 </div>

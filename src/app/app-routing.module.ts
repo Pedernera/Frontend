@@ -4,6 +4,7 @@ import { IniciarsesionComponent } from './componentes/iniciarsesion/iniciarsesio
 import { InicioComponent } from './componentes/inicio/inicio.component';
 
 
+
 const routes: Routes = [
   {path:'',component: InicioComponent},
   {path:'login',component: IniciarsesionComponent}

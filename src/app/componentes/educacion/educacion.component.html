@@ -1,8 +1,10 @@
 
 <h4>Educacion <button *ngIf="isLogged" class="btn-icon" (click)="onEducacion()"> <fa-icon [icon]="add"></fa-icon> </button></h4>
-<ul>
+<ul  *ngIf="addEducacion || editEducacion">
     <li class="item-form" *ngIf="addEducacion"><app-add-educacion (btnCancel)="onEducacion()"></app-add-educacion></li>
     <li class="item-form" *ngIf="editEducacion"><app-edit-educacion (btnCancel)="onEditEducacion()" [editEdu]="editEdu"></app-edit-educacion></li>
+</ul>
+<ul *ngIf="!addEducacion && !editEducacion">
     <li class="item-edit"  *ngFor="let e of educacion">
         <div class="titulo">
             <h5>{{e.tituloEdu}}</h5>
@@ -13,6 +15,9 @@
         </div>
         <div class="descripcion">
             <p>{{e.nomInstituto}}</p>
+        </div>
+        <div class="footer">
+            <p><span>Desde:  {{cargarFecha(e.fechaInicioEdu)}}</span> <span>Hasta: {{cargarFecha(e.fechaFinalEdu)}}</span></p>
         </div>
     </li>
 </ul>

@@ -1,14 +1,28 @@
 <h6>Añadir Educacion</h6>
 <form #f="ngForm"  (ngSubmit)="onAceptar()" novalidate>
     <div class="txt_field">
-        <input type="text" id="tituloEdu" name="tituloEdu" [(ngModel)]="tituloEdu" required>
+        <input type="text" id="tituloEdu" name="tituloEdu" [(ngModel)]="tituloEdu" required autocomplete="off">
         <span></span>
         <label >Titulo</label>
     </div>
     <div class="txt_field">
-        <input type="text" id="nomInstituto" name="nomInstituto" [(ngModel)]="nomInstituto" required>
+        <input type="text" id="nomInstituto" name="nomInstituto" [(ngModel)]="nomInstituto" required autocomplete="off">
         <span></span>
         <label >Instituto</label>
+    </div>
+    <div class="input-check">
+        <label>Cursando Actualmente</label>
+        <input type="checkbox" [checked]="check" (change)="onCkeck($event)">
+    </div>
+    <div class="input-date">
+        <div>
+            <label>Fecha Inicial</label>
+            <input type="date" name="fechaInicial" id="fechaInicial" [(ngModel)]="fechaInicial">
+        </div>
+        <div>
+            <label>Fecha Final</label>
+            <input type="date" name="fechaFinal" id="fechaFinal" [(ngModel)]="fechaFinal" [disabled]="check">
+        </div>
     </div>
     <div class="cont-btn">
         <button class="btn-icon aceptar" type="submit"><fa-icon [icon]="aceptar"></fa-icon> Aceptar</button>

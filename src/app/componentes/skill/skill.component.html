@@ -1,3 +1,29 @@
 <div class="cont" id="skill">
+        <h3>Hard and Soft Skill <button *ngIf="isLogged" class="btn-icon" (click)="onAddSkill()"> <fa-icon [icon]="add"></fa-icon> </button></h3>
+        <div *ngIf="addSkill || editSkill" class="cont-add-edit">
+                <app-add-skill *ngIf="addSkill" (btnCancel)="onAddSkill()"></app-add-skill>
+                <app-edit-skill *ngIf="editSkill" (btnCancel)="onEditSkill()" [editSkill]="skillEdit"></app-edit-skill>
+        </div>
+        <div class="cont-skill" *ngIf="!addSkill && !editSkill && skills">
+                <div *ngIf="front.length > 0">
+                        <h4>Front End</h4>
+                        <div *ngFor="let s of front" class="items">
+                        <app-bar-progress [skill]="s" [color]="s.color" (editar)="editar(s)" (delete)="deleteSkill(s.id)"></app-bar-progress>
+                        </div>
+                </div>
 
+                <div *ngIf="back.length > 0">
+                        <h4>Back End</h4>
+                        <div *ngFor="let s of back" class="items">
+                        <app-bar-progress [skill]="s" [color]="s.color" (editar)="editar(s)" (delete)="deleteSkill(s.id)"></app-bar-progress>
+                        </div>
+                </div>
+                
+                <div *ngIf="soft.length > 0">
+                        <h4>Soft Skill</h4>
+                        <div *ngFor="let s of soft" class="items">
+                        <app-bar-progress [skill]="s" [color]="s.color" (editar)="editar(s)" (delete)="deleteSkill(s.id)"></app-bar-progress>
+                        </div> 
+                </div>
+        </div> 
 </div>

@@ -5,7 +5,7 @@ import {faGithub,faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faUser, faEnvelope,faGraduationCap, faCheckCircle,faHandshake,faCircleXmark, faLaptopCode, faBarsStaggered, faHome, faArrowRightToBracket, faArrowRightFromBracket, faEdit} from '@fortawesome/free-solid-svg-icons'
 import { PersonaService } from 'src/app/service/persona.service';
 import { persona } from 'src/app/model/persona.model';
-
+import { Storage, ref, uploadBytes, getDownloadURL, deleteObject } from "@angular/fire/storage";
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -30,15 +30,24 @@ export class NavComponent implements OnInit {
 
   userEdit = false;
   editImg = false;
+  cargando : String  = ''
   previewImg: String = ''
   img?:any;
+  menu= true;
   persona: persona = new persona("","","","","")
-  constructor(private router: Router, private tokenService: TokenService, private pService: PersonaService) { }
+  constructor(private router: Router, private tokenService: TokenService, private pService: PersonaService, private storage: Storage) { }
 
   isLogged = false;
   
   ngOnInit(): void {
-    this.pService.getPersona().subscribe(data => this.persona = data);
+
+    this.pService.getPersona().subscribe(data =>{
+      const imgRef = ref(this.storage, `imagenes/${data.img}`)
+      getDownloadURL(imgRef).then(res => {
+          this.persona = data;
+          this.cargando= res;
+      })
+    });
     
     if(this.tokenService.getToken()){
       this.isLogged = true;
@@ -71,17 +80,31 @@ export class NavComponent implements OnInit {
     this.previewImg = reader.result as string;
     reader.readAsDataURL(event.target.files[0]);
   }
- 
  }
 
- aceptar():void{
-  this.persona.img = this.img.name;
-  this.pService.updatePersona(1,this.persona).subscribe(data =>{
-    console.log(data)
-  })
-  this.editImg = false;
-  this.img=false;
+ modicarMenu():void{
+    
  }
+ aceptar():void{
+    try {
+      this.cargando=''
+      const imgElim = ref(this.storage, `imagenes/${this.persona.img}`)
+      deleteObject(imgElim)
+      const imgRef = ref(this.storage, `imagenes/${this.img.name}`)
+      uploadBytes(imgRef,this.img).then(res => {
+        getDownloadURL(imgRef).then(res => this.cargando = res)
+        this.persona.img = this.img.name
+        this.pService.updatePersona(1,this.persona).subscribe(data =>{
+          this.editImg = false;
+          this.img=false;
+        })
+      })
+     
+    } catch (error) {
+      console.log(error)
+    }
+ }
+
  cancelar():void{
   this.editImg = false;
   this.img=false;

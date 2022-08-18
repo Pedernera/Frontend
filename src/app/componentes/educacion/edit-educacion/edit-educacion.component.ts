@@ -15,12 +15,18 @@ export class EditEducacionComponent implements OnInit {
  
   tituloEdu:string="";
   nomInstituto:string="";
+  fechaInicial?: Date
+  fechaFinal?: Date
+  check= false
   constructor(private eduService: EducacionService) { }
 
   ngOnInit(): void {
     if(this.editEdu){
       this.tituloEdu = this.editEdu.tituloEdu;
       this.nomInstituto = this.editEdu.nomInstituto;
+      this.fechaInicial = this.editEdu.fechaInicioEdu;
+      this.fechaFinal = this.editEdu.fechaFinalEdu
+      this.check = this.editEdu.fechaFinalEdu ? false : true
     }
   }
 
@@ -28,8 +34,12 @@ export class EditEducacionComponent implements OnInit {
     this.btnCancel.emit()
   }
 
+  onCkeck(e:any):void{
+    this.check = e.target.checked
+  }
   onAceptar(){
-    const editEdu : Educacion = new Educacion(this.tituloEdu,this.nomInstituto); 
+    if(this.fechaInicial && this.check){
+    const editEdu : Educacion = new Educacion(this.tituloEdu,this.nomInstituto, this.fechaInicial, null); 
     if(this.editEdu?.id){
       this.eduService.update(this.editEdu?.id, editEdu).subscribe(data =>{
         console.log(data); 
@@ -38,5 +48,18 @@ export class EditEducacionComponent implements OnInit {
         console.log(err)
       })
     }
+    }  
+    if(this.fechaInicial && this.fechaFinal){
+      const editEdu : Educacion = new Educacion(this.tituloEdu,this.nomInstituto, this.fechaInicial, this.fechaFinal); 
+    if(this.editEdu?.id){
+      this.eduService.update(this.editEdu?.id, editEdu).subscribe(data =>{
+        console.log(data); 
+        this.btnCancel.emit()
+      }, err =>{
+        console.log(err)
+      })
+    }
+    }
+    
   }
 }

@@ -1,3 +1,25 @@
 <div class="cont" id="contacto">
+    <h1>Contacto</h1>
+    
+    <form  (submit)="enviarEmail()">
+       <div class="columna">
+            <div>
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Nombre y Apellido" autocomplete="off" >
+            </div>
+            <div >
+                <label for="">Email de Contacto</label>
+                <input type="email" name="emisor" [(ngModel)]="emisor" placeholder="Ej: ejemplo@gmail.com" autocomplete="off" >
+            </div>
+           
+       </div>
+        <div class="cont-input">
+            <label for="">Mensaje</label>
+            <textarea name="mensaje" cols="80%" rows="7" [(ngModel)]="mensaje" required></textarea>
+        </div>
+        <div class="cont-btn">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
 
 </div>

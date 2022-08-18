@@ -1,0 +1,35 @@
+<h6>Editar Proyecto</h6>
+<form #f="ngForm" (ngSubmit)="onAceptar()" novalidate>
+    <div class="txt">
+        <label >Titulo del Proyecto</label>
+        <input type="text" id="nomProyecto" name="titulo" [(ngModel)]="titulo" autocomplete="off">
+    </div>
+    <div class="txt">
+        <label>Descripcion</label>
+        <textarea name="descripcion" [(ngModel)]="descripcion"></textarea>
+    </div>
+    <div class="txt link">
+        <span>
+            <label>Link Github</label>
+            <input type="url" name="urlGithub" [(ngModel)]="urlGithub">
+        </span>
+        <span>
+            <span class="live">
+                <label>Link Live</label>
+                <input type="checkbox" [checked]="check" (change)="onCheck($event)">
+            </span>
+            <input type="url" name="urlLive"[(ngModel)]="urlLive" [disabled]="!check">
+        </span>
+    </div>
+    <div class="txt">
+        <label>Añadir Imagen</label>
+        <input type="file"  (change)="modificarImg($event)">
+    </div>
+    <div class="txt" *ngIf="previewImg">
+        <img [src]="previewImg" alt="">
+    </div>
+    <div class="cont-btn">
+        <button class="btn-icon aceptar" type="submit"><fa-icon [icon]="aceptar"></fa-icon> Aceptar</button>
+        <button class="btn-icon cancel" (click)="onCancel()" ><fa-icon [icon]="cancelar"></fa-icon> Cancelar</button>
+    </div>
+</form>

@@ -13,6 +13,9 @@ export class AddExperienciaComponent implements OnInit {
   @Output() btnCancel  = new EventEmitter();
   titulo:string='';
   descripcion:string='';
+  fechaInicial?: Date
+  fechaFinal?: Date
+  check= false
   constructor(private expService: ExperienciaService) { }
 
   ngOnInit(): void {
@@ -21,14 +24,29 @@ export class AddExperienciaComponent implements OnInit {
   onCancel(){
     this.btnCancel.emit()
   }
-
+  onCkeck(e:any):void{
+    this.check = e.target.checked
+  }
   onAceptar(){
-    const newExp : Experiencia = new Experiencia(this.titulo,this.descripcion); 
-    this.expService.save(newExp).subscribe(data =>{
-      console.log(data); 
-      this.btnCancel.emit()
-    }, err =>{
-      console.log(err)
-    })
+    if(this.fechaInicial && this.check){
+      const newExp : Experiencia = new Experiencia(this.titulo,this.descripcion,this.fechaInicial, null); 
+      this.expService.save(newExp).subscribe(data =>{
+        console.log(data); 
+        this.btnCancel.emit()
+      }, err =>{
+        console.log(err)
+      })
+    }
+
+    if(this.fechaInicial && this.fechaFinal){
+      const newExp : Experiencia = new Experiencia(this.titulo,this.descripcion,this.fechaInicial,this.fechaFinal); 
+      this.expService.save(newExp).subscribe(data =>{
+        console.log(data); 
+        this.btnCancel.emit()
+      }, err =>{
+        console.log(err)
+      })
+    }
+    
   }
 }

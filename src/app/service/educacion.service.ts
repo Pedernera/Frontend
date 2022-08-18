@@ -7,7 +7,6 @@ import { TokenService } from './token.service';
   providedIn: 'root'
 })
 export class EducacionService {
-  headers = { 'content-type': 'application/json', 'Authorization': 'Bearer' + this.tokenservice.getToken()} 
   eduUrl = "http://localhost:8080/edu/"
   constructor(private httpClient: HttpClient, private tokenservice: TokenService ) { }
 
@@ -20,14 +19,17 @@ export class EducacionService {
   }
 
   public save(edu: Educacion):Observable<any>{
-    return this.httpClient.post<any>(this.eduUrl + `create`, edu,{'headers': this.headers} );
+    const headers = { 'content-type': 'application/json', 'Authorization': 'Bearer' + this.tokenservice.getToken()} 
+    return this.httpClient.post<any>(this.eduUrl + `create`, edu,{'headers': headers} );
   }
 
   public update(id: number, edu:Educacion):Observable<any>{
-    return this.httpClient.put<any>(this.eduUrl + `update/${id}`, edu,{'headers': this.headers} );
+    const headers = { 'content-type': 'application/json', 'Authorization': 'Bearer' + this.tokenservice.getToken()} 
+    return this.httpClient.put<any>(this.eduUrl + `update/${id}`, edu,{'headers': headers} );
   }
 
   public delete(id:number):Observable<any>{
-    return this.httpClient.delete<any>(this.eduUrl + `delete/${id}`,{'headers': this.headers} );
+    const headers = { 'content-type': 'application/json', 'Authorization': 'Bearer' + this.tokenservice.getToken()} 
+    return this.httpClient.delete<any>(this.eduUrl + `delete/${id}`,{'headers': headers} );
   }
 }

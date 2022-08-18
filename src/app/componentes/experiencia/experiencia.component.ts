@@ -65,4 +65,15 @@ export class ExperienciaComponent implements OnInit {
     }
   }
 
+  cargarFecha(fecha :Date):String{
+    if(fecha){
+     const newFecha = new Date(fecha)
+     let mes = newFecha.getMonth()+1 > 9 ? newFecha.getMonth() +1 : '0' + ( newFecha.getMonth()+1)
+     let anio = newFecha.getFullYear()
+
+     return   mes + ' / ' + anio
+    }
+    return 'Actual'
+ }
+
 }
